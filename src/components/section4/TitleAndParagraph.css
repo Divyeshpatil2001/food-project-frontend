@@ -1,0 +1,11 @@
+.centered-section {
+    text-align: center;
+    padding: 45px;
+   
+   
+  }
+  
+  .centered-section > div {
+    margin-bottom: 40px;
+  }
+  
