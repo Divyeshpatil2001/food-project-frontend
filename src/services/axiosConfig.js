@@ -21,8 +21,14 @@ const RefreshAccessToken = async () => {
 axiosInstance.interceptors.request.use(
     async (config) => {
         const access_token = localStorage.getItem('access_token')
+        const contentType = config.headers['content-type'] 
         if (access_token) {
-            config.headers.Authorization = `Bearer ${access_token}`
+            config.headers = {
+                ...config.headers,
+                // "Content-Type": !contentType && "application/json",
+                "Authorization": `Bearer ${access_token}`
+            }
+          
         }
         return config
     },
