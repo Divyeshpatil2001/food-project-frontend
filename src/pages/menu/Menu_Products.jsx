@@ -6,6 +6,7 @@ import './MenuProducts.scss';
 import { Rating } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, incrementQuantity } from '../../features/cartSlice';
+import { Margin } from '@mui/icons-material';
 
 function MenuProducts() {
   const [products, setProducts] = useState([]);
@@ -67,13 +68,15 @@ function MenuProducts() {
                   </Box>
                 </CardContent>
               </Link>
+              <Box sx={{ textAlign: 'center', mb: 2 }}>
               <Button
                 variant="contained"
                 onClick={(event) => handleAddToCart(event, product)}
-                style={{marginLeft:"50px"}}
+                sx={{margin:"auto"}}
               >
                 Add to Cart
               </Button>
+              </Box>
             </Card>
           </div>
         ))}
