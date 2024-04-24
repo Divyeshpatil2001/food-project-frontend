@@ -7,7 +7,7 @@ import {thunk} from 'redux-thunk'
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['user', 'cart'], // Include 'cart' in the persistConfig whitelist
+  whitelist: ['user', 'cart'], 
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

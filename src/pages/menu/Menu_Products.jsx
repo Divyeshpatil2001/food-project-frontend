@@ -12,7 +12,6 @@ function MenuProducts() {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart.items);
-
   useEffect(() => {
     const fetchProducts = async () => {
       try {

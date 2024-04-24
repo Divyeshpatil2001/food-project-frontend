@@ -34,7 +34,9 @@ import Menu_ProductDesc from './pages/menu/Menu_ProductDesc';
 import Menu_CustomDish from './pages/menu/Menu_CustomDish';
 import { useSelector } from 'react-redux';
 import AddToCart from './components/addtocart/AddToCart';
-
+import Order from './components/order/Order'
+import Profile from './components/profile/Profile';
+import ProductUpload from './pages/new/products_upload/ProductUpload';
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -93,6 +95,8 @@ function App() {
           {user && (
             <Route path='addtocart' element={<AddToCart />}></Route>
           )}
+          <Route path='order' element={<Order /> }></Route>
+          <Route path='profile' element={<Profile /> }></Route>
           <Route path='logout' element={<Logout />}></Route>
         </Route>
         <Route path='register' element={<Register />}></Route>
@@ -123,13 +127,13 @@ function AdminRoutes() {
       <Route path="login" element={<DLogin />} />
       <Route path="users">
         <Route index element={<List />} />
-        <Route path=":userId" element={<Single />} />
-        <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
+        {/* <Route path=":userId" element={<Single />} /> */}
+        <Route path="newuser" element={<New title="Add New User" />} />
       </Route>
       <Route path="products">
         <Route index element={<ProductsItem />} />
-        <Route path=":productId" element={<Single />} />
-        <Route path="new" element={<New inputs={productInputs} title="Add New Product" />} />
+        {/* <Route path=":productId" element={<Single />} /> */}
+        <Route path="newproduct" element={<ProductUpload />} />
       </Route> 
     </Routes>
   );

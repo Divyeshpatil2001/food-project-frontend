@@ -7,6 +7,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import image1 from './iconfoody.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../features/userSlice';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
@@ -43,12 +44,21 @@ const Header = () => {
     if (user) {
       return (
         <IconButton color="inherit" component={Link} to="/addtocart">
-          <ShoppingCartIcon  sx={{ fontSize: '30px' }}/>
+          <ShoppingCartIcon sx={{ fontSize: '30px' }} />
         </IconButton>
       );
     }
     return null;
   };
+
+  const handleOrderNow = () => {
+    // Navigate the user to the cart page
+    navigate('/order');
+  };
+
+  const handleProfile = () => {
+    navigate('/profile')
+  }
 
   return (
     <React.Fragment>
@@ -92,6 +102,10 @@ const Header = () => {
               </Menu>
             </ListItem>
             {renderAddToCart()}
+            <ListItem button onClick={handleOrderNow}>
+              <ListItemText primary="Order" />
+            </ListItem>
+            <AccountCircleIcon fontSize='medium' onClick={handleProfile}/>
             {user ? (
               <ListItem key="logout" button component={Link} to="/logout">
                 <ListItemText primary="Logout" onClick={async () => {
@@ -109,6 +123,7 @@ const Header = () => {
                 </ListItem>
               </>
             )}
+            
           </MenuBox>
           <Box flex={1} sx={{ marginLeft: "25px" }}>
             <MenuIcon
@@ -132,9 +147,9 @@ const Header = () => {
           <ListItem button component={Link} to="/custom-dish">
             <ListItemText primary="Custom Dish" />
           </ListItem>
-          <ListItem button component={Link} to="/fixed-dish">
+          {/* <ListItem button component={Link} to="/fixed-dish">
             <ListItemText primary="Fixed Dish" />
-          </ListItem>
+          </ListItem> */}
           {renderAddToCart()}
           {user ? (
             <ListItem button onClick={async () => {
@@ -153,6 +168,9 @@ const Header = () => {
               </ListItem>
             </>
           )}
+          <ListItem button onClick={handleOrderNow}>
+            <ListItemText primary="Order" />
+          </ListItem>
         </List>
       </Drawer>
     </React.Fragment>
@@ -160,6 +178,7 @@ const Header = () => {
 };
 
 export default Header;
+
 
 
 

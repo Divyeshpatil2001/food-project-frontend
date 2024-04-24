@@ -75,8 +75,8 @@ const access_token = localStorage.getItem('access_token');
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
-        <Link to="new" className="link">
+        Add New Product
+        <Link to="newproduct" className="link">
           Add New
         </Link>
       </div>
