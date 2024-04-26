@@ -8,9 +8,15 @@ import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutline
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const first_name = useSelector(state => state.user.userDetail.first_name)
+
+  const getFirstLetter = (name) => {
+    return name ? name[0].toUpperCase() : '';
+  };
 
   return (
     <div className="navbar">
@@ -31,26 +37,9 @@ const Navbar = () => {
             />
           </div>
           <div className="item">
-            <FullscreenExitOutlinedIcon className="icon" />
-          </div>
-          <div className="item">
-            <NotificationsNoneOutlinedIcon className="icon" />
-            <div className="counter">1</div>
-          </div>
-          <div className="item">
-            <ChatBubbleOutlineOutlinedIcon className="icon" />
-            <div className="counter">2</div>
-          </div>
-          <div className="item">
-            <ListOutlinedIcon className="icon" />
-          </div>
-          <div className="item">
-            <img
-              src="https://images.pexels.com/photos/941693/pexels-photo-941693.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              alt=""
-              className="avatar"
-              
-            />
+            <div className="avatar">
+              {getFirstLetter(first_name)}
+            </div>
           </div>
         </div>
       </div>

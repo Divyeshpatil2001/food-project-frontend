@@ -8,6 +8,7 @@ import axiosInstance from "../../services/axiosConfig";
 import Sidebar from "../../components/sidebar/Sidebar"
 import Navbar from "../../components/navbar/Navbar"
 import ProductsItemTable from './ProductsItemTable';
+import '../list/list.scss'
 
 function ProductsItem() {
   return (

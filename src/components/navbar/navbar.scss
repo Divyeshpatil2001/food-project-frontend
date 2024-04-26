@@ -45,10 +45,18 @@
           }
   
           .avatar {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
           }
+          
   
           .counter {
             width: 15px;

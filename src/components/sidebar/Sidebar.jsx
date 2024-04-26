@@ -34,7 +34,7 @@ const Sidebar = () => {
         </Link>
       </div>
       <hr />
-      <div className="center">
+      <div className="center" >
         <ul>
           <p className="title">MAIN</p>
           <Link to={'/admin'} style={{ textDecoration: "none" }}>
@@ -62,39 +62,20 @@ const Sidebar = () => {
             <span>Menu</span>
           </li>
           </Link>
+          <Link to="/admin/orders" style={{ textDecoration: "none" }}>
           <li>
             <CreditCardIcon className="icon" />
             <span>Orders</span>
           </li>
-          <p className="title">USEFUL</p>
-          <li>
-            <InsertChartIcon className="icon" />
-            <span>Stats</span>
-          </li>
-          <li>
-            <NotificationsNoneIcon className="icon" />
-            <span>Notifications</span>
-          </li>
-          <p className="title">SERVICE</p>
-          <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
-          </li>
-          <li>
-            <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
-          </li>
-          <li>
-            <SettingsApplicationsIcon className="icon" />
-            <span>Settings</span>
-          </li>
+          </Link>
           <p className="title">USER</p>
+          <Link to="/admin/profile" style={{textDecoration: "none"}}>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
-        
-          <Link to='/login' sx={{textDecoration:"none"}} onClick={async() => {
+          </Link>
+          <Link to='/login' style={{textDecoration:"none"}} onClick={async() => {
             await Dispatch(logout())
           }}>
             <li >

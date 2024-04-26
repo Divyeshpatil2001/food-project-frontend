@@ -19,7 +19,6 @@ const DataTable = () => {
     const fetchData = async () => { 
       try {
         const response = await axiosInstance.get('/accounts/RegisterUserAPI/');
-        console.log("data recievibg")
         setData(response.data);
       } catch(error) {
         console.log("error in fetching users",error.message)
@@ -72,10 +71,10 @@ const DataTable = () => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
-        <Link to="newuser" className="link">
+        User
+        {/* <Link to="newuser" className="link">
           Add New
-        </Link>
+        </Link> */}
       </div>
       <DataGrid
         className="datagrid"

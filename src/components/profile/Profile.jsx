@@ -36,116 +36,124 @@ const Profile = () => {
   return (
     <div style={styles.profileContainer}>
       <div style={styles.profileDetails}>
-        <h2>Profile Details</h2>
+        <h2 style={styles.title}>Profile Details</h2>
         <div style={styles.profileInfo}>
           {editMode ? (
             <form onSubmit={formik.handleSubmit}>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>First Name:</span> 
+              <div style={styles.inputField}>
+                <span style={styles.label}>First Name:</span> 
                 <input
                   id="first_name"
                   name="first_name"
                   type="text"
                   value={formik.values.first_name}
                   onChange={formik.handleChange}
+                  style={styles.input}
                 />
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Last Name:</span> 
+              <div style={styles.inputField}>
+                <span style={styles.label}>Last Name:</span> 
                 <input
                   id="last_name"
                   name="last_name"
                   type="text"
                   value={formik.values.last_name}
                   onChange={formik.handleChange}
+                  style={styles.input}
                 />
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Email:</span> 
+              <div style={styles.inputField}>
+                <span style={styles.label}>Email:</span> 
                 <input
                   id="email"
                   name="email"
                   type="text"
                   value={formik.values.email}
                   onChange={formik.handleChange}
+                  style={styles.input}
                 />
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Phone:</span> 
+              <div style={styles.inputField}>
+                <span style={styles.label}>Phone:</span> 
                 <input
                   id="phone"
                   name="phone"
                   type="text"
                   value={formik.values.phone}
                   onChange={formik.handleChange}
+                  style={styles.input}
                 />
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Address Line 1:</span> 
+              <div style={styles.inputField}>
+                <span style={styles.label}>Address Line 1:</span> 
                 <input
                   id="Address1"
                   name="Address1"
                   type="text"
                   value={formik.values.Address1}
                   onChange={formik.handleChange}
+                  style={styles.input}
                 />
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Address Line 2:</span> 
+              <div style={styles.inputField}>
+                <span style={styles.label}>Address Line 2:</span> 
                 <input
                   id="Address2"
                   name="Address2"
                   type="text"
                   value={formik.values.Address2}
                   onChange={formik.handleChange}
+                  style={styles.input}
                 />
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Pincode:</span> 
+              <div style={styles.inputField}>
+                <span style={styles.label}>Pincode:</span> 
                 <input
                   id="pincode"
                   name="pincode"
                   type="text"
                   value={formik.values.pincode}
                   onChange={formik.handleChange}
+                  style={styles.input}
                 />
               </div>
-              <button type="submit">Save</button>
+              <button type="submit" style={styles.button}>Save</button>
+              <button type="button" onClick={toggleEditMode} style={styles.button}>Cancel</button>
             </form>
           ) : (
             <>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>First Name:</span> 
-                <span style={styles.profileValue}>{userDetail.first_name}</span>
+              <div style={styles.inputField}>
+                <span style={styles.label}>First Name:</span> 
+                <span style={styles.value}>{userDetail.first_name}</span>
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Last Name:</span> 
-                <span style={styles.profileValue}>{userDetail.last_name}</span>
+              <div style={styles.inputField}>
+                <span style={styles.label}>Last Name:</span> 
+                <span style={styles.value}>{userDetail.last_name}</span>
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Email:</span> 
-                <span style={styles.profileValue}>{userDetail.email}</span>
+              <div style={styles.inputField}>
+                <span style={styles.label}>Email:</span> 
+                <span style={styles.value}>{userDetail.email}</span>
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Phone:</span> 
-                <span style={styles.profileValue}>{userDetail.phone}</span>
+              <div style={styles.inputField}>
+                <span style={styles.label}>Phone:</span> 
+                <span style={styles.value}>{userDetail.phone}</span>
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Address Line 1:</span> 
-                <span style={styles.profileValue}>{userDetail.Address1}</span>
+              <div style={styles.inputField}>
+                <span style={styles.label}>Address Line 1:</span> 
+                <span style={styles.value}>{userDetail.Address1}</span>
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Address Line 2:</span> 
-                <span style={styles.profileValue}>{userDetail.Address2}</span>
+              <div style={styles.inputField}>
+                <span style={styles.label}>Address Line 2:</span> 
+                <span style={styles.value}>{userDetail.Address2}</span>
               </div>
-              <div style={styles.profileField}>
-                <span style={styles.profileLabel}>Pincode:</span> 
-                <span style={styles.profileValue}>{userDetail.pincode}</span>
+              <div style={styles.inputField}>
+                <span style={styles.label}>Pincode:</span> 
+                <span style={styles.value}>{userDetail.pincode}</span>
               </div>
             </>
           )}
-          <div style={styles.profileField}>
-            <button onClick={toggleEditMode}>{editMode ? 'Cancel' : 'Edit'}</button>
+          <div style={styles.inputField}>
+            <button onClick={toggleEditMode} style={styles.toggleButton}>{editMode ? 'Cancel' : 'Edit'}</button>
           </div>
         </div>
       </div>

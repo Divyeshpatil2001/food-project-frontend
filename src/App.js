@@ -37,6 +37,9 @@ import AddToCart from './components/addtocart/AddToCart';
 import Order from './components/order/Order'
 import Profile from './components/profile/Profile';
 import ProductUpload from './pages/new/products_upload/ProductUpload';
+import MenusAdmin from './components/menu_admin/MenusAdmin';
+import OrdersAdmin from './components/orders_admin/OrdersAdmin';
+import ProfileAdmin from './components/adminprofile/ProfileAdmin';
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -135,6 +138,15 @@ function AdminRoutes() {
         {/* <Route path=":productId" element={<Single />} /> */}
         <Route path="newproduct" element={<ProductUpload />} />
       </Route> 
+      <Route path="menu">
+        <Route index element={<MenusAdmin />}></Route>
+      </Route>
+      <Route path="orders">
+        <Route index element={<OrdersAdmin />}></Route>
+      </Route>
+      <Route path="profile">
+        <Route index element={<ProfileAdmin />}></Route>
+      </Route>
     </Routes>
   );
 }

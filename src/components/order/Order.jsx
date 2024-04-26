@@ -11,6 +11,7 @@ function Order() {
     try {
       const response = await axiosInstance.get('/orders/OrdersAPI/');
       setOrders(response.data);
+      console.log(response.data)
     } catch (error) {
       console.error('Error fetching orders:', error);
     }
@@ -25,16 +26,15 @@ function Order() {
     setOpenCancelDialog(true);
   };
 
-  const cancelOrder = async () => {
-    try {
-      await axiosInstance.delete(`/orders/OrdersAPI/${cancelOrderId}/`);
-      console.log(`Cancelled order with ID ${cancelOrderId}`);
-      setOpenCancelDialog(false);
-      // After successful cancellation, fetch orders again to update the list
-      fetchOrders();
-    } catch (error) {
-      console.error('Error cancelling order:', error);
-    }
+  const cancelOrder = () => {
+    const updatedOrders = orders.map(order => {
+      if (order.order_id === cancelOrderId) {
+        return { ...order, payment_status: 'Cancelled' }; // Update payment status locally
+      }
+      return order;
+    });
+    setOrders(updatedOrders);
+    setOpenCancelDialog(false);
   };
 
   const formatDate = (dateString) => {
@@ -78,9 +78,11 @@ function Order() {
                 <Divider />
               </CardContent>
               <CardActions>
-                <Button onClick={() => handleCancelOrder(order.order_id)} color="error" variant="contained">
-                  Cancel Order
-                </Button>
+                {order.payment_status === 'Pending' && (
+                  <Button onClick={() => handleCancelOrder(order.order_id)} color="error" variant="contained">
+                    Cancel Order
+                  </Button>
+                )}
               </CardActions>
             </Card>
           </Paper>

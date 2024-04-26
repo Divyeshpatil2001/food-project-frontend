@@ -34,7 +34,7 @@ const Login = () => {
         })}
         onSubmit={ async (values, { setSubmitting }) => {
           try {
-            await dispatch(loginUser(values,navigate));
+           dispatch(loginUser(values,navigate));
           } catch (error) {
             console.log("Error:", error);
           } finally {
