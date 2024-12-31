@@ -100,7 +100,7 @@ function AddToCart() {
 
     var order_id = razorPayment.data.data.id
     const options = {
-      key: "rzp_test_05CcPoy7xdnDDa", 
+      key: "rzp_test_mK8OLxdgPMsqTK", 
       name: "FoodCrafters",
       description: "Test Transaction",
       image: "https://example.com/your_logo",
