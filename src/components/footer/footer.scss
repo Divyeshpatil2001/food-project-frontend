@@ -1,19 +1,103 @@
-.footer-container {
+.footer {
+  background: linear-gradient(135deg, #ff6f61, #ff9d2f); // Soft gradient background
+  color: white;
+  padding: 40px 20px;
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+
+    .footer-section {
+      margin-bottom: 20px;
+
+      h3.footer-logo {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #fef5e6; // Lighter text for contrast
+      }
+
+      h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin: 5px 0;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin: 5px 0;
+
+          a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+
+            &:hover {
+              color: #fef5e6;
+            }
+          }
+        }
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+
+        a {
+          font-size: 18px;
+          color: white;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #fef5e6;
+          }
+        }
+      }
+    }
+  }
+
+  .newsletter-form {
     display: flex;
-    max-width: 540px;
+    gap: 10px;
+
+    .newsletter-input {
+      padding: 8px 10px;
+      flex: 1;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .newsletter-button {
+      padding: 8px 20px;
+      background-color: #fef5e6;
+      color: #ff6f61;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #ffe2d4;
+      }
+    }
   }
-  
-  .image-container {
-    flex: 0 0 auto;
-    margin-right: 16px; /* Adjust as needed */
+
+  .footer-divider {
+    border-color: rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
   }
-  
-  .text-container {
-    flex: 1;
+
+  .footer-copy {
+    text-align: center;
+    margin: 0;
+    font-size: 14px;
   }
-  
-  .footer-image {
-    width: 100%;
-    border-radius: 10px;
-  }
-  
+}

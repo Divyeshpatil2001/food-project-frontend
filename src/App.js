@@ -28,7 +28,6 @@ import './styles/dark.scss'
 import { Navigate } from 'react-router-dom';
 import ProductsItem from './pages/products_new/ProductsItem';
 import Footer from './components/footer/Footer';
-import Catering from './components/catering/Catering';
 import Menu_Products from './pages/menu/Menu_Products';
 import Menu_ProductDesc from './pages/menu/Menu_ProductDesc';
 import Menu_CustomDish from './pages/menu/Menu_CustomDish';
@@ -56,7 +55,7 @@ function App() {
         <main>
           <Outlet />
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     )
   }
@@ -86,7 +85,6 @@ function App() {
       <Routes>
         <Route path='/'element={<LayoutComponent />} >
           <Route index element={<Home />}></Route>
-          <Route path='catering' element={<Catering />}></Route>
           <Route path='menu-products'>
             <Route index element={<Menu_Products />} ></Route>
             <Route path='products-desc/:productId' element={<Menu_ProductDesc />}></Route>
