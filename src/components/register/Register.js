@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Grid, Typography, Container } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import axiosInstance from '../../services/axiosConfig';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -58,7 +59,7 @@ const Register = () => {
           })}
           onSubmit={async (values, { setSubmitting, setErrors,errors }) => {
             try {
-              const response = await axios.post('http://localhost:8000/accounts/RegisterUserAPI/', values);
+              const response = await axiosInstance.post('/accounts/RegisterUserAPI/', values);
               console.log("Registered user:", response.data);
               setSubmitting(false);
               navigate('/login');

@@ -7,6 +7,7 @@ import Menu_CustomDish from '../../pages/menu/Menu_CustomDish';
 import axiosInstance from '../../services/axiosConfig';
 import useRazorpay from "react-razorpay";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function AddToCart() {
@@ -16,6 +17,7 @@ function AddToCart() {
   const [showModal, setShowModal] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState(null);
   const [Razorpay] = useRazorpay();
+   const navigate = useNavigate();
 
   const handleRemoveFromCart = (event, productId) => {
     event.stopPropagation();
@@ -72,7 +74,6 @@ function AddToCart() {
       name: product.menu_name || product.title,
       quantity: product.quantity
     })),
-    user : userId
   }
 
 
@@ -80,7 +81,6 @@ function AddToCart() {
   const handleCheckout = async() => {
     // order save 
     const order_save = await axiosInstance.post('/orders/OrdersAPI/',order_data)
-    
     // initalize payment
     const razorPayment = await axiosInstance.post('/razorpay/order/create/',{
       "amount" : getTotalAmount() * 100,
@@ -95,6 +95,7 @@ function AddToCart() {
         "signature" : signature,
         "amount" : getTotalAmount(order_id) * 100,
       })
+      navigate('/order');
     } 
 
 

@@ -11,7 +11,6 @@ function Order() {
     try {
       const response = await axiosInstance.get('/orders/OrdersAPI/');
       setOrders(response.data);
-      console.log(response.data)
     } catch (error) {
       console.error('Error fetching orders:', error);
     }
